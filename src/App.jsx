@@ -1,12 +1,12 @@
 import { CreateUser } from "./features/CreateUser"
-
+import {SApp} from "./App.styled"
 function App() {
   
 
   return (
-    <div>
+    <SApp>
      <CreateUser/>
-    </div>
+    </SApp>
   )
 }
 

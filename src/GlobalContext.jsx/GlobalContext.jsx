@@ -39,11 +39,12 @@ export const GlobalContext = createContext({
     setGrades:undefined,
 });
 
+
 export function GlobalProvider({children}) {
 const [chapters,setChapters]=useState(chapters_default);
 const [users,setUsers]=useState([])
 const [grades,setGrades]=useState([]);
-
+console.log(users)
 
     return <GlobalContext.Provider value={{chapters,setChapters,users,setUsers,grades,setGrades}} >{children}</GlobalContext.Provider>;
 }
