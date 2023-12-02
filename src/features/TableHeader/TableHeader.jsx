@@ -9,8 +9,7 @@ export function TableHeader  () {
     {chapters?.map(chapter=>{
         return <th key={chapter.id}>{chapter.name}</th>
     })}
-    <th>Contact</th>
-    <th>Country</th>
+   
   </tr>
   )
 }

@@ -18,7 +18,7 @@ setUsername("");
 }
 
   return <SContainer>
-    <input placeholder="name and surname" value={username} onChange={(e)=>
+    <input placeholder="Username" value={username} onChange={(e)=>
     setUsername(e.target.value)}/>
     <button onClick={addUser}>add</button>
   </SContainer>

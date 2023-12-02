@@ -42,8 +42,12 @@ export const GlobalContext = createContext({
 
 export function GlobalProvider({children}) {
 const [chapters,setChapters]=useState(chapters_default);
-const [users,setUsers]=useState([])
-const [grades,setGrades]=useState([]);
+const [users,setUsers]=useState([{id: "user-1",username:"ani"}])
+const [grades,setGrades]=useState([
+    {id:"grade-1",userId:"user-1",chapterId:"day-1",grade:40},
+    {id:"grade-2",userId:"user-2",chapterId:"day-2",grade:60},
+    {id:"grade-3",userId:"user-3",chapterId:"day-3",grade:70}
+]);
 console.log(users)
 
     return <GlobalContext.Provider value={{chapters,setChapters,users,setUsers,grades,setGrades}} >{children}</GlobalContext.Provider>;
