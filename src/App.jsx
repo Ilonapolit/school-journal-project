@@ -1,11 +1,12 @@
 import { CreateUser } from "./features/CreateUser"
-import {SApp} from "./App.styled"
+import {SApp,STable} from "./App.styled"
 function App() {
   
 
   return (
     <SApp>
      <CreateUser/>
+     <STable/>
     </SApp>
   )
 }
