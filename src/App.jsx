@@ -10,6 +10,20 @@ function App() {
      <STable>
 
     <TableHeader/>
+    <tr>
+      <td>სახელი გვარი</td>
+      <td>-</td>
+      <td>-</td>
+      <td>100</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>ანი</td>
+      <td>30</td>
+      <td>50</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
   {/* <tr>
     <th>Students</th>
     <th>Contact</th>

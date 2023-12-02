@@ -14,4 +14,3 @@ export function TableHeader  () {
   </tr>
   )
 }
-
