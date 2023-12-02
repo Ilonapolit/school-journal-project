@@ -40,8 +40,8 @@ export const GlobalContext = createContext({
 });
 
 export function GlobalProvider({children}) {
-    const [chapters,setChapters]=useState(chapters_default);
-    const [users,setUsers]=useState([])
+const [chapters,setChapters]=useState(chapters_default);
+const [users,setUsers]=useState([])
 const [grades,setGrades]=useState([]);
 
 

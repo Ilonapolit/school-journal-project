@@ -1,13 +1,11 @@
-
+import { CreateUser } from "./features/CreateUser"
 
 function App() {
   
 
   return (
     <div>
-      <h1>
-        ilonapolitova
-      </h1>
+     <CreateUser/>
     </div>
   )
 }
