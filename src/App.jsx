@@ -1,8 +1,12 @@
 import { CreateUser } from "./features/CreateUser"
 import {SApp,STable} from "./App.styled"
 import { TableHeader } from "./features/TableHeader"
+import { TableRow } from "./features/TableRow"
+
+import {useContext} from "react"
+import { GlobalContext } from "./GlobalContext.jsx/GlobalContext"
 function App() {
-  
+  const {users} =useContext(GlobalContext)
 
   return (
     <SApp>
@@ -10,20 +14,12 @@ function App() {
      <STable>
 
     <TableHeader/>
-    <tr>
-      <td>სახელი გვარი</td>
-      <td>-</td>
-      <td>-</td>
-      <td>100</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <td>ანი</td>
-      <td>30</td>
-      <td>50</td>
-      <td>-</td>
-      <td>-</td>
-    </tr>
+   {users.map((user)=> {
+    return <TableRow key={user.id} user={user} />
+   }
+
+   )}
+ <TableRow/>
   {/* <tr>
     <th>Students</th>
     <th>Contact</th>
