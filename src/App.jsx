@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import './App.css';
 import SubjectButton from './components/SubjectButton';
 import WeekButton from './components/WeekButton';
-import StudentRow from './StudentRow';
+import StudentRow from './components/StudentRow';
 
 const App = () => {
   const subjects = ['math', 'english', 'georgian'];
@@ -147,7 +146,7 @@ const App = () => {
         </tbody>
       </table>
 
-      <button onClick={addRow}>Добавить студента</button>
+      <button onClick={addRow}>Add Student </button>
     </div>
   );
 };
