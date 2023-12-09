@@ -147,7 +147,7 @@ const App = () => {
         </tbody>
       </table>
 
-      <button onClick={addRow}>Add Student </button>
+      <button onClick={addRow}>დამატება </button>
     </div>
   );
 };
