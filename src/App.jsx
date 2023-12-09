@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import SubjectButton from './SubjectButton';
+import SubjectButton from './components/SubjectButton';
 import WeekButton from './WeekButton';
 import StudentRow from './StudentRow';
 
