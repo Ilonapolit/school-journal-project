@@ -5,13 +5,102 @@ import WeekButton from './WeekButton';
 import StudentRow from './StudentRow';
 
 const App = () => {
-  // ... (remaining imports and constants)
+  const subjects = ['math', 'english', 'georgian'];
+  const weeks = ['Week1', 'Week2', 'Week3'];
+  const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
-  // ... (useState and other functions)
+  const [selectedSubject, setSelectedSubject] = useState(null);
+  const [selectedWeek, setSelectedWeek] = useState(weeks[0]);
+  const [students, setStudents] = useState([
+    { 
+      id: 1, 
+      name: 'John', 
+      surname: 'Doe', 
+      grades: {
+        math: {
+          Week1: [null, null, null, null, null],
+          Week2: [null, null, null, null, null],
+          Week3: [null, null, null, null, null]
+        },
+        english: {
+          Week1: [null, null, null, null, null],
+          Week2: [null, null, null, null, null],
+          Week3: [null, null, null, null, null]
+        },
+        georgian: {
+          Week1: [null, null, null, null, null],
+          Week2: [null, null, null, null, null],
+          Week3: [null, null, null, null, null]
+        }
+      } 
+    },
+  ]);
+
+  const onSelectSubject = (subject) => {
+    setSelectedSubject(subject);
+    setSelectedWeek(weeks[0]);
+  };
+
+  const onSelectWeek = (week) => {
+    setSelectedWeek(week);
+  };
+
+  const addRow = () => {
+    const newStudent = {
+      id: students.length + 1,
+      name: '',
+      surname: '',
+      grades: {
+        math: {
+          Week1: [null, null, null, null, null],
+          Week2: [null, null, null, null, null],
+          Week3: [null, null, null, null, null]
+        },
+        english: {
+          Week1: [null, null, null, null, null],
+          Week2: [null, null, null, null, null],
+          Week3: [null, null, null, null, null]
+        },
+        georgian: {
+          Week1: [null, null, null, null, null],
+          Week2: [null, null, null, null, null],
+          Week3: [null, null, null, null, null]
+        }
+      },
+    };
+
+    setStudents([...students, newStudent]);
+  };
+
+  const updateStudentInfo = (id, field, value) => {
+    const updatedStudents = students.map((student) =>
+      student.id === id ? { ...student, [field]: value } : student
+    );
+
+    setStudents(updatedStudents);
+  };
+
+  const updateGrade = (id, subject, week, dayIndex, value) => {
+    const updatedStudents = students.map((student) =>
+      student.id === id
+        ? {
+            ...student,
+            grades: {
+              ...student.grades,
+              [subject]: {
+                ...student.grades[subject],
+                [week]: student.grades[subject][week].map((grade, index) => (index === dayIndex ? value : grade)),
+              },
+            },
+          }
+        : student
+    );
+
+    setStudents(updatedStudents);
+  };
 
   return (
     <div className="App">
-      {/* Subject Buttons */}
       <div className="subject-buttons">
         {subjects.map((subject) => (
           <SubjectButton
@@ -23,7 +112,6 @@ const App = () => {
         ))}
       </div>
 
-      {/* Week Buttons */}
       <div className="week-buttons">
         {weeks.map((week) => (
           <WeekButton
@@ -35,7 +123,6 @@ const App = () => {
         ))}
       </div>
 
-      {/* Student Table */}
       <table>
         <thead>
           <tr>
@@ -60,7 +147,6 @@ const App = () => {
         </tbody>
       </table>
 
-      {/* Add Student Button */}
       <button onClick={addRow}>Добавить студента</button>
     </div>
   );
