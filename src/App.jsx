@@ -1,47 +1,69 @@
-import { CreateUser } from "./features/CreateUser"
-import {SApp,STable} from "./App.styled"
-import { TableHeader } from "./features/TableHeader"
-import { TableRow } from "./features/TableRow"
+import React, { useState } from 'react';
+import './App.css';
+import SubjectButton from './SubjectButton';
+import WeekButton from './WeekButton';
+import StudentRow from './StudentRow';
 
-import {useContext} from "react"
-import { GlobalContext } from "./GlobalContext.jsx/GlobalContext"
-function App() {
-  const {users} =useContext(GlobalContext)
+const App = () => {
+  // ... (remaining imports and constants)
+
+  // ... (useState and other functions)
 
   return (
-    <SApp>
-     <CreateUser/>
-     <STable>
+    <div className="App">
+      {/* Subject Buttons */}
+      <div className="subject-buttons">
+        {subjects.map((subject) => (
+          <SubjectButton
+            key={subject}
+            subject={subject}
+            selectedSubject={selectedSubject}
+            onSelectSubject={onSelectSubject}
+          />
+        ))}
+      </div>
 
-    <TableHeader/>
-   {users.map((user)=> {
-    return <TableRow key={user.id} user={user} />
-   }
+      {/* Week Buttons */}
+      <div className="week-buttons">
+        {weeks.map((week) => (
+          <WeekButton
+            key={week}
+            week={week}
+            selectedWeek={selectedWeek}
+            onSelectWeek={onSelectWeek}
+          />
+        ))}
+      </div>
 
-   )}
- <TableRow/>
-  {/* <tr>
-    <th>Students</th>
-    <th>Contact</th>
-    <th>Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr> */}
+      {/* Student Table */}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            {daysOfWeek.map((day) => (
+              <th key={day}>{day}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {students.map((student) => (
+            <StudentRow
+              key={student.id}
+              student={student}
+              selectedSubject={selectedSubject}
+              selectedWeek={selectedWeek}
+              updateStudentInfo={updateStudentInfo}
+              updateGrade={updateGrade}
+            />
+          ))}
+        </tbody>
+      </table>
 
+      {/* Add Student Button */}
+      <button onClick={addRow}>Добавить студента</button>
+    </div>
+  );
+};
 
-
-
-      </STable>
-    </SApp>
-  )
-}
-
-export default App
+export default App;
