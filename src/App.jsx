@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SubjectButton from './components/SubjectButton';
 import WeekButton from './components/WeekButton';
 import StudentRow from './components/StudentRow';
+import './App.css'
 
 const App = () => {
   const subjects = ['math', 'english', 'georgian'];
