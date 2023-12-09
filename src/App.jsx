@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import SubjectButton from './components/SubjectButton';
-import WeekButton from './WeekButton';
+import WeekButton from './components/WeekButton';
 import StudentRow from './StudentRow';
 
 const App = () => {
